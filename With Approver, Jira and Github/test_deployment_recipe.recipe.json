@@ -1,0 +1,45 @@
+{
+  "name": "test deployment recipe",
+  "description": "",
+  "version": 1,
+  "private": true,
+  "concurrency": 1,
+  "code": {
+    "number": 0,
+    "provider": "workato_recipe_function",
+    "name": "execute",
+    "as": "0c3a8a6e",
+    "keyword": "trigger",
+    "input": {
+    },
+    "block": [
+      {
+        "number": 1,
+        "keyword": "action",
+        "input": {
+        },
+        "uuid": "f4038025-4692-4cdd-bdd2-37ce5c678227"
+      },
+      {
+        "number": 2,
+        "provider": "workato_recipe_function",
+        "name": "return_result",
+        "as": "3cc78d5d",
+        "keyword": "action",
+        "input": {
+        },
+        "uuid": "63f1ccf3-b2a8-4018-8b8d-a0574af1a091"
+      }
+    ],
+    "uuid": "cc11cb02-7ed8-42fc-8fd6-e0aca02dabde",
+    "unfinished": false
+  },
+  "config": [
+    {
+      "keyword": "application",
+      "provider": "workato_recipe_function",
+      "skip_validation": false,
+      "account_id": null
+    }
+  ]
+}
