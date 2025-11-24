@@ -1,0 +1,193 @@
+{
+  "name": "test recipe",
+  "description": "",
+  "version": 5,
+  "private": true,
+  "concurrency": 1,
+  "code": {
+    "number": 0,
+    "provider": "workato_recipe_function",
+    "name": "execute",
+    "as": "b924ba37",
+    "keyword": "trigger",
+    "input": {
+    },
+    "block": [
+      {
+        "number": 1,
+        "provider": "cicd_for_workato_v3_connector_500515863_1763121942",
+        "name": "get_build_package",
+        "as": "ae91e9ca",
+        "title": null,
+        "description": "Get a build <span class=\"provider\">package</span> from Workato <span class=\"provider\">Environment</span>",
+        "keyword": "action",
+        "dynamicPickListSelection": {
+          "deployment_mode": "Projects (Environments)",
+          "workato_environment": "DEV"
+        },
+        "toggleCfg": {
+          "deployment_mode": false,
+          "workato_environment": false
+        },
+        "input": {
+          "id": "69907",
+          "deployment_mode": "projects",
+          "workato_environment": "DEV"
+        },
+        "extended_input_schema": [
+          {
+            "control_type": "select",
+            "label": "Deployment Mode",
+            "name": "deployment_mode",
+            "optional": false,
+            "pick_list": "deployment_mode",
+            "toggle_field": {
+              "name": "deployment_mode",
+              "label": "Deployment Mode",
+              "type": "string",
+              "control_type": "text",
+              "optional": false,
+              "toggle_hint": "Use Deployment Mode"
+            },
+            "toggle_hint": "Select from list",
+            "type": "string"
+          },
+          {
+            "control_type": "select",
+            "label": "Workato Environment",
+            "name": "workato_environment",
+            "optional": false,
+            "pick_list": "environments",
+            "toggle_field": {
+              "name": "workato_environment",
+              "label": "Workato Environment Reference",
+              "type": "string",
+              "control_type": "text",
+              "optional": false,
+              "toggle_hint": "Use Environment Name"
+            },
+            "toggle_hint": "Select from list",
+            "type": "string"
+          },
+          {
+            "control_type": "text",
+            "label": "Build or Package ID",
+            "name": "id",
+            "optional": false,
+            "type": "string"
+          }
+        ],
+        "uuid": "3bbd7964-f130-446c-811c-f1488e904754",
+        "skip": false
+      },
+      {
+        "number": 2,
+        "provider": "cicd_for_workato_v3_connector_500515863_1763121942",
+        "name": "build_package_async",
+        "as": "d878f842",
+        "title": null,
+        "description": "Build <span class=\"provider\">package</span> from Workato <span class=\"provider\">Environment</span>",
+        "keyword": "action",
+        "dynamicPickListSelection": {
+          "deployment_mode": "Projects (Environments)",
+          "workato_environment": "DEV"
+        },
+        "toggleCfg": {
+          "deployment_mode": false,
+          "workato_environment": false
+        },
+        "input": {
+          "deployment_mode": "projects",
+          "workato_environment": "DEV",
+          "id": "971188"
+        },
+        "extended_input_schema": [
+          {
+            "control_type": "select",
+            "label": "Deployment Mode",
+            "name": "deployment_mode",
+            "optional": false,
+            "pick_list": "deployment_mode",
+            "toggle_field": {
+              "name": "deployment_mode",
+              "label": "Deployment Mode",
+              "type": "string",
+              "control_type": "text",
+              "optional": false,
+              "toggle_hint": "Use Deployment Mode"
+            },
+            "toggle_hint": "Select from list",
+            "type": "string"
+          },
+          {
+            "control_type": "select",
+            "label": "Workato Environment",
+            "name": "workato_environment",
+            "optional": false,
+            "pick_list": "environments",
+            "toggle_field": {
+              "name": "workato_environment",
+              "label": "Workato Environment Reference",
+              "type": "string",
+              "control_type": "text",
+              "optional": false,
+              "toggle_hint": "Use Environment Name"
+            },
+            "toggle_hint": "Select from list",
+            "type": "string"
+          },
+          {
+            "control_type": "text",
+            "hint": "Source manifest or project/folder ID to build.",
+            "label": "ID",
+            "name": "id",
+            "optional": false,
+            "type": "string"
+          },
+          {
+            "control_type": "text",
+            "hint": "Release description for documentation.",
+            "label": "Description",
+            "name": "description",
+            "ngIf": "input.deployment_mode == 'projects'",
+            "optional": true,
+            "type": "string"
+          }
+        ],
+        "uuid": "082d03b0-4389-4765-bb6e-ccf1b6573d2e",
+        "skip": true
+      },
+      {
+        "number": 3,
+        "provider": "workato_recipe_function",
+        "name": "return_result",
+        "as": "45784532",
+        "keyword": "action",
+        "input": {
+        },
+        "uuid": "57cb414b-a3c7-405c-a5a1-b39084eac28c"
+      }
+    ],
+    "uuid": "b03e4dc9-6d74-4b7b-bb69-3a3396f5b7fa",
+    "unfinished": false
+  },
+  "config": [
+    {
+      "keyword": "application",
+      "provider": "workato_recipe_function",
+      "skip_validation": false,
+      "account_id": null
+    },
+    {
+      "keyword": "application",
+      "provider": "cicd_for_workato_v3_connector_500515863_1763121942",
+      "skip_validation": false,
+      "account_id": {
+        "zip_name": "Workbot Project/Connections/cicd_con_cicd_for_workato_v3.connection.json",
+        "name": "CICD | CON | CICD for Workato V3",
+        "folder": "Workbot Project/Connections",
+        "custom": true
+      }
+    }
+  ]
+}
